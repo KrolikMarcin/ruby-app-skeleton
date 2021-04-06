@@ -1,0 +1,17 @@
+source 'https://rubygems.org/'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby '2.7.2'
+
+gem "activesupport"
+gem "dry-initializer"
+gem "dry-monads", require: "dry/monads/all"
+gem "dry-schema"
+gem "dry-system"
+gem "dry-struct"
+gem "pg"
+gem "sequel"
+
+group :test, :development do
+  gem "pry"
+end

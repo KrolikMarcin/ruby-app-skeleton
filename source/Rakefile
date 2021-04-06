@@ -1,0 +1,12 @@
+task :environment do
+  require_relative "system/app"
+  App.finalize!
+end
+
+task console: :environment do
+  require "pry"
+  ARGV.clear
+  Pry.start
+end
+
+Dir[File.join(".", "tasks", "**", "*.rake")].sort.each { |file| load file }

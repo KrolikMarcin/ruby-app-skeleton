@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  database:
+    image: postgres:12.5
+    environment:
+      POSTGRES_PASSWORD: app-skeleton
+      POSTGRES_USER: root
+      POSTGRES_DB: app-skeleton
+      LANG: en_US.UTF8
+      LANGUAGE: en_US.UTF8
+      LC_ALL: en_US.UTF8
+
+  service:
+    image: ${API_IMAGE_TAG}
+    entrypoint: bash -c
+    init: true
+    env_file: $ENVFILE
+    volumes: [$VOLUMES]
+    ports:
+      - 9292:9292
+    depends_on:
+      - database
