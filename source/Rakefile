@@ -1,6 +1,6 @@
 task :environment do
-  require_relative "system/app"
-  App.finalize!
+  require_relative "system/application/container"
+  Application::Container.finalize!
 end
 
 task console: :environment do

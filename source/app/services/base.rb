@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 require "dry/monads"
-require 'import'
+require 'application/import'
 
 module Services
   class Base
-    include Dry::Monads[:do, :result]
+    include Dry::Monads[:do, :result, :maybe]
 
-    def validate_params(schema, input)
+    def validate_params!(schema: self.class::Schema, **input)
       schema
         .(input)
         .to_monad

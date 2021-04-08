@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 require "dry/system/components"
-require "dry-types"
+require_relative "../../lib/types"
 
-App.boot(:settings, from: :system) do
+Application::Container.boot(:settings, from: :system) do
   settings do
-    key :rack_env, Dry.Types::String.default('development')
-    key :rds_user, Dry.Types::Strict::String
-    key :rds_database, Dry.Types::Strict::String
-    key :rds_host, Dry.Types::Strict::String
-    key :rds_port, Dry.Types::Coercible::Integer
-    key :rds_password, Dry.Types::Strict::String
-    key :sequel_pool, Dry.Types::Coercible::Integer
+    key :rack_env, Types::String.default('development')
+    key :rds_user, Types::Strict::String
+    key :rds_database, Types::Strict::String
+    key :rds_host, Types::Strict::String
+    key :rds_port, Types::Coercible::Integer
+    key :rds_password, Types::Strict::String
+    key :sequel_pool, Types::Coercible::Integer
   end
 end

@@ -24,4 +24,5 @@ dev: build-api
 	ENVFILE=./.env-development \
 	docker-compose run --service-ports --rm service 'bash -l'
 
-down: clean
+clean:
+	docker-compose down --remove-orphans --volumes

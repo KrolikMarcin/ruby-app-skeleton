@@ -1,20 +1,15 @@
 # frozen_string_literal: true
 
-require_relative '../entities/user'
+require 'securerandom'
+require_relative '../changesets/users/new'
 
-module Repos
-  class User < Local
-    option :data_entity, default: -> { ::Entities::User }
-    option :relation_name, default: -> { :users }
+module Repos 
+  class User < ROM::Repository[:users]
+    include Import["persistence.container"]
+    include Local
 
-    private
-
-    def initial_metadata
-      { created_at: Time.current, updated_at: Time.current, uid: SecureRandom.uuid }
-    end
-
-    def update_metadata
-      { updated_at: Time.current }
+    def create(**params)
+      super(changeset: ::Changesets::Users::New, uid: SecureRandom.uuid, **params)
     end
   end
 end
