@@ -7,11 +7,13 @@ module Services
 
       Schema = Dry::Schema.Params { required(:name).filled(:string) }
 
-      def call(**input)
-        params = yield validate_params(Schema, input)
+      def call(**params)
+        yield validate_params!(**params)
         yield validate_unique_name!(**params)
-        user = user_repo.create(**params)
-        Success(user)
+        
+        user_repo
+          .create(**params)
+          .then(&method(:Success))
       end
 
       private

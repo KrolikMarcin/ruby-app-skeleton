@@ -7,7 +7,7 @@ module Services
   class Base
     include Dry::Monads[:do, :result, :maybe]
 
-    def validate_params(input, schema: self.class::Schema)
+    def validate_params!(schema: self.class::Schema, **input)
       schema
         .(input)
         .to_monad
