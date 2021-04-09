@@ -14,7 +14,7 @@ module Operations
         .to_monad
         .fmap(&:to_h)
         .or do |validaton_result|
-          build_failure(message:"Invalid params", status: 400, details: { **validaton_result.errors.to_hash })
+          build_failure(message:"Invalid params", status: 400, details: validaton_result.errors.to_hash)
         end
     end
 
