@@ -1,11 +1,11 @@
 # app-skeleton
 
-# Makefile comamnds
+### Makefile comamnds
 - `make dev`
 - `make api`
 - `make clean`
 
-# Rake tasks:
+### Rake tasks:
 - `rake db:create`
 - `rake db:migrate`
 - `rake db:generate:migration NAME=migration_name`
