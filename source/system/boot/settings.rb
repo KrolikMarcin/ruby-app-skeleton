@@ -12,5 +12,6 @@ Application::Container.boot(:settings, from: :system) do
     key :rds_port, Types::Coercible::Integer
     key :rds_password, Types::Strict::String
     key :sequel_pool, Types::Coercible::Integer
+    key :started_at, Types::Time.default { Time.now }
   end
 end

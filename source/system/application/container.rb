@@ -9,7 +9,7 @@ module Application
     use :env, inferrer: -> { ENV }
 
     configure do |config|
-      config.auto_register = %w[app/services app/repos]
+      config.auto_register = %w[app/operations app/repos]
     end
 
     load_paths!('app', 'lib')
