@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Services
+module Operations
   module Users
     class Create < Base
       include ::Import[user_repo: 'repos.user']
@@ -24,10 +24,12 @@ module Services
           .then(&method(:Maybe))
           .to_result
           .either(
-            ->_ { Failure(:name_is_not_unique) },
+            ->_ { build_failure(message: "Name is not uniqe", status: 412, details: { name: name }) },
             ->_ { Success(:unique_name) }
           )
       end
     end
   end
 end
+
+
