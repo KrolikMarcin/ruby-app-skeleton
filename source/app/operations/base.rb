@@ -2,7 +2,7 @@
 
 require "dry/monads"
 require 'application/import'
-require_relative '../entities/err'
+require 'err'
 
 module Operations
   class Base

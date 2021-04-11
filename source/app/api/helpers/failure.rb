@@ -7,10 +7,10 @@ module API
 
       def handle_failure(failure)
         return error_500! unless failure.is_a?(::Entities::Err) && failure.status.present?
-
+        
         error!(
           { errors: [{ status: failure.status, title: failure.message, details: failure.details }] },
-          status
+          failure.status
         )
       end
 
