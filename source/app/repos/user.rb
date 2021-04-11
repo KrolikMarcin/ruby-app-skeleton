@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'securerandom'
-require_relative '../changesets/users/new'
+require 'changesets/users/new'
 
 module Repos 
   class User < ROM::Repository[:users]

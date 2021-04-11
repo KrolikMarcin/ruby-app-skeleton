@@ -1,5 +1,10 @@
 # app-skeleton
 
+### Stack
+- dry-rb
+- rom-rb
+- grape
+
 ### Makefile comamnds
 - `make dev`
 - `make api`

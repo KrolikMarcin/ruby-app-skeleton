@@ -6,7 +6,7 @@ module Entities
 
     attribute :message, Types::String
     attribute :klass, Types::String
-    attribute? :status, Types::Integer.optional
     attribute :details, Types::Hash.default { {} }
+    attribute? :status, Types::Integer.optional
   end
 end

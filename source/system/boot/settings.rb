@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "dry/system/components"
-require_relative "../../lib/types"
+require "types"
 
 Application::Container.boot(:settings, from: :system) do
   settings do
